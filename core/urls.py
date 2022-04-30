@@ -15,7 +15,28 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.contrib.auth.views import LoginView, LogoutView
+
+from pizzashopapp import views
+
+from django.conf.urls.static import static
+from django.conf import settings
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
+    path('', views.home, name='home'),
+
+    #Url for sign-in/out/up
+    path('pizzashop/sign-in/', LoginView.as_view(template_name='pizzashopapp/sign_in.html'),
+         name='pizzashop-sign-in'),
+    path('pizzashop/sign-out', LogoutView.as_view(next_page='/'),
+         name='pizzashop-sign-out'),
+
+    path('pizzashop/', views.pizzashop_home, name='pizzashop-home'),
+    path('pizzashop/sign-up', views.pizzashop_sign_up, name='pizzashop-sign-up'),
+
+    path('pizzashop/account', views.pizzashop_account, name='pizzashop-account'),
+    path('pizzashop/pizza', views.pizzashop_pizza, name='pizzashop-pizza'),
+
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
