@@ -8,7 +8,9 @@
 {% url 'pizzashop-account' as pizzashop_account_url %}
 
   <div class="text-center">
-    <img class="rounded-circle" src="{{ MEDIA_URL }}{{ request.user.pizzashop.logo }}" width="70" height="70">
+    <a href="{% url 'home' %}">
+        <img class="rounded-circle" src="{{ MEDIA_URL }}{{ request.user.pizzashop.logo }}" width="70" height="70">
+    </a>
     <br>
     <br>
     <h4>Hello, {{ request.user.get_full_name }}</h4>
