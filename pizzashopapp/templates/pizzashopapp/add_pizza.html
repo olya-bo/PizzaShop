@@ -1,21 +1,20 @@
 {% extends 'pizzashopapp/base.html' %}
+
 {% load bootstrap4 %}
 
-
 {% block page %}
-    <div class="offset-lg-5 col-lg-8">
+  <div class="offset-lg-5 col-lg-8">
     <div class="card">
       <div class="card-header bg-ruby">
         <h4 class="card-title text-center text-white">
-          Profile
+          Add pizza
         </h4>
       </div>
       <div class="card-body">
         <form method="POST" enctype="multipart/form-data">
           {% csrf_token %}
-          {% bootstrap_form user_form %}
-          {% bootstrap_form pizzashop_form %}
-          <button type="submit" class="btn btn-red">Update</button>
+          {% bootstrap_form form %}
+          <button type="submit" class="btn btn-red">Add</button>
         </form>
       </div>
     </div>

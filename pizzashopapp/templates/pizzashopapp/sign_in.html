@@ -1,5 +1,5 @@
 {% extends 'base_signup.html' %}
-
+{% load bootstrap4 %}
 
 {% block title %}Login{% endblock %}
 
@@ -8,7 +8,8 @@
 {% block content %}
     <form method="POST">
         {% csrf_token%}
-        {{ form }}
-        <button type="submit">Login</button>
+        {% bootstrap_form form %}
+        <button type="submit" class="btn btn-red float-end">Login</button>
     </form>
+    <a href="{% url 'pizzashop-sign-up' %}">Register PizzaShop</a>
 {% endblock %}

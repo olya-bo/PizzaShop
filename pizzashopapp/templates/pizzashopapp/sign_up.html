@@ -1,4 +1,5 @@
 {% extends 'base_signup.html' %}
+{% load bootstrap4 %}
 
 
 {% block title %}Login{% endblock %}
@@ -9,8 +10,11 @@
     <h2>Registration</h2>
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ user_form.as_p}}
-        {{ pizzashop_form.as_p }}
-        <button type="submit">Registration</button>
+        <h3>Owner</h3>
+        {% bootstrap_form user_form %}
+        <h3>Pizza Shop</h3>
+        {% bootstrap_form  pizzashop_form %}
+        <button type="submit" class="btn btn-red float-end">Registration</button>
+        <a href="{% url 'pizzashop-sign-in' %}">Do you have profile?</a>
     </form>
 {% endblock %}
