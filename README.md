@@ -2,5 +2,5 @@
 
 TODO:
 - Update libs in [requirements.txt](requirements.txt)
-- Fix problem with User not have PizzaShop
+- Fix issue with superuser User don't have PizzaShop
 - Dockerize app
